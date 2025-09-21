@@ -1,75 +1,45 @@
-.counter {
-  text-align: center;
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 2rem;
+  text-align: center;
 }
 
-#count {
-  font-size: 6rem;
-  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
-  color: #333;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
-#count.glow {
-  color: #61dafb;
-  /* React blue */
-  text-shadow:
-    0 0 10px #61dafb,
-    0 0 20px #61dafb,
-    0 0 30px #61dafb,
-    0 0 40px #61dafb;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
 
-/* Buttons styling and glow on hover */
-.btns {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-button {
-  background-color: #20232a;
-  border: none;
-  padding: 1em 2em;
-  color: white;
-  font-size: 1.2rem;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-button.glow-btn:hover {
-  box-shadow:
-    0 0 8px #61dafb,
-    0 0 16px #61dafb,
-    0 0 24px #61dafb;
-  transform: scale(1.05);
-}
-
-button:focus {
-  outline: none;
-}
-
-/* Add subtle glowing animation to buttons */
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow:
-      0 0 8px #61dafb,
-      0 0 16px #61dafb,
-      0 0 24px #61dafb;
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
   }
 
-  50% {
-    box-shadow:
-      0 0 12px #21a1f1,
-      0 0 24px #21a1f1,
-      0 0 36px #21a1f1;
-    transform: scale(1.1);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-button.glow-btn {
-  animation: pulse-glow 3s infinite;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
 }

@@ -24,9 +24,12 @@ class Counter extends React.Component {
     }
 
     render() {
+        // Add glow class when count is not zero to apply animation
+        const glowClass = this.state.count !== 0 ? 'glow' : '';
+
         return (
             <div className="counter">
-                <h1 id="count" className={this.state.count !== 0 ? 'glow' : ''}>
+                <h1 id="count" className={glowClass}>
                     {this.state.count}
                 </h1>
                 <div className="btns">

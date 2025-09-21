@@ -1,31 +1,100 @@
 .counter {
     text-align: center;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Count number */
 #count {
-    font-size: 50px;
-    color: #2c3e50;
-    margin-bottom: 20px;
+    font-size: 6rem;
+    color: #333;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-.btns button {
-    padding: 10px 20px;
-    margin: 5px;
-    font-size: 18px;
+/* Glow animation on count when count != 0 */
+@keyframes glowAnim {
+
+    0%,
+    100% {
+        text-shadow:
+            0 0 10px #61dafb,
+            0 0 20px #61dafb,
+            0 0 30px #61dafb,
+            0 0 40px #61dafb;
+        color: #61dafb;
+    }
+
+    50% {
+        text-shadow:
+            0 0 20px #21a1f1,
+            0 0 30px #21a1f1,
+            0 0 40px #21a1f1,
+            0 0 50px #21a1f1;
+        color: #21a1f1;
+    }
+}
+
+#count.glow {
+    animation: glowAnim 2.5s infinite alternate;
+}
+
+/* Buttons container */
+.btns {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Button base style */
+button {
+    background-color: #20232a;
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 1em 2em;
     color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-button.increase {
-    background: #27ae60;
+/* Glowing animation on buttons */
+@keyframes pulseGlowBtn {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 8px #61dafb,
+            0 0 16px #61dafb,
+            0 0 24px #61dafb;
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow:
+            0 0 12px #21a1f1,
+            0 0 24px #21a1f1,
+            0 0 36px #21a1f1;
+        transform: scale(1.05);
+    }
 }
 
-button.decrease {
-    background: #c0392b;
+button.glow-btn {
+    animation: pulseGlowBtn 3s infinite;
 }
 
-button.reset {
-    background: #2980b9;
+/* Button hover effect for extra glow and pop */
+button.glow-btn:hover {
+    box-shadow:
+        0 0 14px #61dafb,
+        0 0 28px #61dafb,
+        0 0 42px #61dafb;
+    transform: scale(1.1);
+    outline: none;
+}
+
+/* Remove default focus outline */
+button:focus {
+    outline: none;
 }
